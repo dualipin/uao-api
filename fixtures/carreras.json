@@ -1,0 +1,194 @@
+[
+  {
+    "model": "carreras.carrera",
+    "pk": 1,
+    "fields": {
+      "nombre": "Ingeniera Industrial",
+      "abreviatura": "II",
+      "tipo": "Licenciatura",
+      "descripcion": "La carrera de Ingeniería Industrial se enfoca en la optimización de procesos y recursos en diversas industrias, combinando conocimientos de ingeniería, administración y ciencias sociales para mejorar la eficiencia y productividad."
+    }
+  },
+  {
+    "model": "carreras.carrera",
+    "pk": 2,
+    "fields": {
+      "nombre": "Contaduría Pública",
+      "abreviatura": "CP",
+      "tipo": "Licenciatura",
+      "descripcion": "La carrera de Contaduría Pública se centra en la formación de profesionales capaces de gestionar y auditar la información financiera de las organizaciones, asegurando la transparencia y el cumplimiento de las normativas fiscales."
+    }
+  },
+  {
+    "model": "carreras.carrera",
+    "pk": 3,
+    "fields": {
+      "nombre": "Derecho",
+      "abreviatura": "DE",
+      "tipo": "Licenciatura",
+      "descripcion": "La carrera de Derecho se enfoca en la formación de profesionales en el ámbito jurídico, capacitados para interpretar y aplicar la ley, así como para defender los derechos de las personas y las organizaciones."
+    }
+  },
+  {
+    "model": "carreras.carrera",
+    "pk": 4,
+    "fields": {
+      "nombre": "Administración",
+      "abreviatura": "AD",
+      "tipo": "Licenciatura",
+      "descripcion": "La carrera de Administración se centra en la formación de profesionales capaces de gestionar y dirigir organizaciones, combinando conocimientos de diversas áreas como finanzas, recursos humanos y marketing."
+    }
+  },
+  {
+    "model": "carreras.carrera",
+    "pk": 5,
+    "fields": {
+      "nombre": "Trabajo Social",
+      "abreviatura": "TS",
+      "tipo": "Licenciatura",
+      "descripcion": "La carrera de Trabajo Social se enfoca en la intervención y apoyo a individuos, familias y comunidades en situaciones de vulnerabilidad, promoviendo el bienestar social y la justicia."
+    }
+  },
+  {
+    "model": "carreras.carrera",
+    "pk": 6,
+    "fields": {
+      "nombre": "Psicología Educativa",
+      "abreviatura": "PS",
+      "tipo": "Licenciatura",
+      "descripcion": "La carrera de Psicología Educativa se centra en el estudio y la intervención en procesos de aprendizaje y desarrollo en contextos educativos, buscando mejorar el rendimiento y bienestar de los estudiantes."
+    }
+  },
+  {
+    "model": "carreras.carrera",
+    "pk": 7,
+    "fields": {
+      "nombre": "Pedagogía",
+      "abreviatura": "PE",
+      "tipo": "Licenciatura",
+      "descripcion": "La carrera de Pedagogía se enfoca en la formación de profesionales en el ámbito educativo, capacitados para diseñar, implementar y evaluar procesos de enseñanza y aprendizaje en diversos contextos."
+    }
+  },
+  {
+    "model": "carreras.carrera",
+    "pk": 8,
+    "fields": {
+      "nombre": "Ingeniería Petrolera",
+      "abreviatura": "IP",
+      "tipo": "Licenciatura",
+      "descripcion": "La carrera de Ingeniería Petrolera se centra en la exploración, extracción y producción de petróleo y gas, combinando conocimientos de ingeniería, geología y tecnología para desarrollar soluciones sostenibles en la industria energética."
+    }
+  },
+  {
+    "model": "carreras.carreraextension",
+    "fields": {
+      "carrera": 1,
+      "extension": 1
+    }
+  },
+  {
+    "model": "carreras.carreraextension",
+    "fields": {
+      "carrera": 2,
+      "extension": 1
+    }
+  },
+  {
+    "model": "carreras.carreraextension",
+    "fields": {
+      "carrera": 3,
+      "extension": 1
+    }
+  },
+  {
+    "model": "carreras.carreraextension",
+    "fields": {
+      "carrera": 4,
+      "extension": 1
+    }
+  },
+  {
+    "model": "carreras.carreraextension",
+    "fields": {
+      "carrera": 5,
+      "extension": 1
+    }
+  },
+  {
+    "model": "carreras.carreraextension",
+    "fields": {
+      "carrera": 6,
+      "extension": 1
+    }
+  },
+  {
+    "model": "carreras.carreraextension",
+    "fields": {
+      "carrera": 7,
+      "extension": 1
+    }
+  },
+  {
+    "model": "carreras.carreraextension",
+    "fields": {
+      "carrera": 8,
+      "extension": 1
+    }
+  },
+  {
+    "model": "carreras.carreraextension",
+    "fields": {
+      "carrera": 1,
+      "extension": 2
+    }
+  },
+  {
+    "model": "carreras.carreraextension",
+    "fields": {
+      "carrera": 2,
+      "extension": 2
+    }
+  },
+  {
+    "model": "carreras.carreraextension",
+    "fields": {
+      "carrera": 3,
+      "extension": 2
+    }
+  },
+  {
+    "model": "carreras.carreraextension",
+    "fields": {
+      "carrera": 4,
+      "extension": 2
+    }
+  },
+  {
+    "model": "carreras.carreraextension",
+    "fields": {
+      "carrera": 5,
+      "extension": 2
+    }
+  },
+  {
+    "model": "carreras.carreraextension",
+    "fields": {
+      "carrera": 6,
+      "extension": 2
+    }
+  },
+  {
+    "model": "carreras.carreraextension",
+    "fields": {
+      "carrera": 7,
+      "extension": 2
+    }
+  },
+  {
+    "model": "carreras.carreraextension",
+    "fields": {
+      "carrera": 8,
+      "extension": 2
+    }
+  }
+]
