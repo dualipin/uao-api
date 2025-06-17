@@ -11,13 +11,13 @@ class ExtensionViewSet(viewsets.ModelViewSet):
     queryset = Extension.objects.all()
     serializer_class = ExtensionSerializer
 
-    def get_permissions(self):
-        """Sobrescribe el método para establecer permisos según la acción."""
-        if self.action in ["create", "update", "destroy"]:
-            self.permission_classes = [IsAuthenticated]
-        else:
-            self.permission_classes = [SoloListar]
-        return super().get_permissions()
+    # def get_permissions(self):
+    #     """Sobrescribe el método para establecer permisos según la acción."""
+    #     if self.action in ["create", "update", "destroy"]:
+    #         self.permission_classes = [IsAuthenticated]
+    #     else:
+    #         self.permission_classes = [SoloListar]
+    #     return super().get_permissions()
 
     def perform_create(self, serializer: ExtensionSerializer):
         """Sobrescribe el método para crear una extensión con su dirección."""
