@@ -17,6 +17,8 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 app_patterns = [
     path("", include("usuarios.urls")),
@@ -29,5 +31,4 @@ app_patterns = [
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include(app_patterns)),
-    path("static/", include("django.contrib.staticfiles.urls")),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
