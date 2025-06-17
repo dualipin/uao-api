@@ -35,50 +35,35 @@ class PerfilView(APIView):
         return super().handle_exception(exc)
 
     def get(self, request: Req):
-        if not request.user.is_authenticated:
-            return Response(
-                {
-                    "detail": "Given token not valid for any token type",
-                    "code": "token",
-                    "messages": [
-                        {
-                            "token_class": "AccessToken",
-                            "token_type": "access",
-                            "message": "Token is invalid",
-                        }
-                    ],
-                },
-                status=401,
-            )
         user: Usuario = request.user
         serializer = PerfilSerializer(user)
-        context = {"usuario": user.username, "mensaje": "Has accedido a tu perfil."}
-        asunto = "Acceso al perfil"
-        cuerpo_html = render_to_string("emails/acceso.html", context)
-        cuerpo_txt = f"""
-Hola {user.username},
+        #         context = {"usuario": user.username, "mensaje": "Has accedido a tu perfil."}
+        #         asunto = "Acceso al perfil"
+        #         cuerpo_html = render_to_string("emails/acceso.html", context)
+        #         cuerpo_txt = f"""
+        # Hola {user.username},
 
-Has accedido a tu perfil.
+        # Has accedido a tu perfil.
 
-Si no fuiste tú, por favor contáctanos inmediatamente.
+        # Si no fuiste tú, por favor contáctanos inmediatamente.
 
----
-Este correo fue enviado automáticamente por UAO App.
-        """
+        # ---
+        # Este correo fue enviado automáticamente por UAO App.
+        #         """
 
-        email = EmailMultiAlternatives(
-            subject=asunto,
-            body=cuerpo_txt,
-            from_email=None,  # Default from email
-            to=["martin.msr1304@gmail.com"],
-        )
-        email.attach_alternative(cuerpo_html, "text/html")
-        try:
-            email.send()
+        #         email = EmailMultiAlternatives(
+        #             subject=asunto,
+        #             body=cuerpo_txt,
+        #             from_email=None,  # Default from email
+        #             to=["martin.msr1304@gmail.com"],
+        #         )
+        #         email.attach_alternative(cuerpo_html, "text/html")
+        #         try:
+        #             email.send()
 
-        except Exception as e:
-            return Response(
-                {"detail": "Error al enviar el correo de notificación."}, status=500
-            )
+        #         except Exception as e:
+        #             return Response(
+        #                 {"detail": "Error al enviar el correo de notificación."}, status=500
+        #             )
 
         return Response(serializer.data)
