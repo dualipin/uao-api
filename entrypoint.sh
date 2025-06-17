@@ -5,6 +5,7 @@ set -e
 if [ -n "$DB_HOST" ]; then
   echo "Esperando a la base de datos..."
   while ! nc -z $DB_HOST $DB_PORT; do
+    echo "Esperando a que la base de datos esté disponible en $DB_HOST:$DB_PORT..."
     sleep 2
   done
   echo "Base de datos disponible"
