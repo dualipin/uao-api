@@ -24,3 +24,34 @@ class PerfilSerializer(serializers.ModelSerializer):
         representation = super().to_representation(instance)
         representation["roles"] = list(instance.groups.values_list("name", flat=True))
         return representation
+
+
+class UsuarioSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(required=False, allow_blank=True, write_only=True)
+
+    class Meta:
+        model = Usuario
+        # fields = "__all__"
+        exclude = (
+            "groups",
+            "user_permissions",
+            "last_login",
+            "is_superuser",
+            "is_staff",
+        )
+
+    def create(self, validated_data):
+        password = validated_data.pop("password", None)
+        usuario = super().create(validated_data)
+        if password:
+            usuario.set_password(password)
+            usuario.save()
+        return usuario
+
+    def update(self, instance, validated_data):
+        password = validated_data.pop("password", None)
+        usuario = super().update(instance, validated_data)
+        if password:
+            usuario.set_password(password)
+            usuario.save()
+        return usuario
