@@ -60,7 +60,7 @@ services:
         if [ ! -f /etc/letsencrypt/live/uao-api.eastus2.cloudapp.azure.com/fullchain.pem ]; then
           certbot certonly --webroot --webroot-path=/var/www/certbot \
             --email ${DEFAULT_FROM_EMAIL} --agree-tos --no-eff-email \
-            -d ${BACKEND_URL};
+            -d ${BACKEND_URL} --non-interactive;
         fi
       "
 
