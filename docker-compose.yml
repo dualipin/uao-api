@@ -55,9 +55,8 @@ services:
     volumes:
       - ./nginx/ssl:/etc/letsencrypt
       - ./nginx/ssl:/var/www/certbot
-    entrypoint: /bin/sh
-    command: >
-      certbot certonly --webroot --webroot-path=/var/www/certbot --email ${DEFAULT_FROM_EMAIL} --agree-tos --no-eff-email -d ${BACKEND_URL} --non-interactive
+    command: certonly --webroot --webroot-path=/var/www/certbot --email ${DEFAULT_FROM_EMAIL} --agree-tos --no-eff-email -d ${BACKEND_URL} --non-interactive
+
 volumes:
   postgres_data:
     driver: local
