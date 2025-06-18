@@ -55,14 +55,8 @@ services:
     volumes:
       - ./nginx/ssl:/etc/letsencrypt
       - ./nginx/ssl:/var/www/certbot
-    entrypoint: >
-      sh -c "
-        if [ ! -f /etc/letsencrypt/live/uao-api.eastus2.cloudapp.azure.com/fullchain.pem ]; then
-          certbot certonly --webroot --webroot-path=/var/www/certbot \
-            --email ${DEFAULT_FROM_EMAIL} --agree-tos --no-eff-email \
-            -d ${BACKEND_URL} --non-interactive;
-        fi
-      "
+    entrypoint: /bin/sh
+    command: -c ' if [ ! -f /etc/letsencrypt/live/${BACKEND_URL}/fullchain.pem ]; then certbot certonly --webroot --webroot-path=/var/www/certbot \ --email "$DEFAULT_FROM_EMAIL" --agree-tos --no-eff-email \ -d "$BACKEND_URL" --non-interactive fi '
 
 volumes:
   postgres_data:
