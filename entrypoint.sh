@@ -16,14 +16,32 @@ echo "Aplicando migraciones..."
 python manage.py migrate --noinput
 
 # Cargar fixtures si existen
+# if [ -f "fixtures/extensiones.json" ]; then
+#   echo "Cargando fixtures..."
+#   python manage.py loaddata fixtures/extensiones.json
+# fi
+
+# if [ -f "fixtures/carreras.json" ]; then
+#   echo "Cargando fixtures de carreras..."
+#   python manage.py loaddata fixtures/carreras.json
+# fi
+
 if [ -f "fixtures/extensiones.json" ]; then
-  echo "Cargando fixtures..."
-  python manage.py loaddata fixtures/extensiones.json
+  if [ "$(python manage.py shell -c 'from extensiones.models import Extension; print(Extension.objects.count())')" = "0" ]; then
+    echo "Cargando fixtures..."
+    python manage.py loaddata fixtures/extensiones.json
+  else
+    echo "Fixtures de extensiones ya están cargados."
+  fi
 fi
 
 if [ -f "fixtures/carreras.json" ]; then
-  echo "Cargando fixtures de carreras..."
-  python manage.py loaddata fixtures/carreras.json
+  if [ "$(python manage.py shell -c 'from carreras.models import Carrera; print(Carrera.objects.count())')" = "0" ]; then
+    echo "Cargando fixtures de carreras..."
+    python manage.py loaddata fixtures/carreras.json
+  else
+    echo "Fixtures de carreras ya están cargados."
+  fi
 fi
 
 # Colectar archivos estáticos (si es necesario)
