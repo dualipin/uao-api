@@ -50,7 +50,6 @@ INSTALLED_APPS = [
     "extensiones",
     "carreras",
     "alumnos",
-    # "alumnos",
     # "pagos",
 ]
 

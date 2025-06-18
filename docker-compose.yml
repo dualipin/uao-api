@@ -29,6 +29,41 @@ services:
     depends_on:
       - postgres
 
+  nginx:
+    image: nginx:latest
+    container_name: uao-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/start-nginx.sh:/start-nginx.sh
+      - ./nginx/nginx-http.conf:/nginx-http.conf
+      - ./nginx/nginx-https.conf:/nginx-https.conf
+      - ./nginx/ssl:/etc/letsencrypt
+      - ./nginx/ssl:/var/www/certbot
+    command: [ "sh", "/start-nginx.sh" ]
+    depends_on:
+      - uao-app
+
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    env_file:
+      - .env
+    depends_on:
+      - nginx
+    volumes:
+      - ./nginx/ssl:/etc/letsencrypt
+      - ./nginx/ssl:/var/www/certbot
+    entrypoint: >
+      sh -c "
+        if [ ! -f /etc/letsencrypt/live/uao-api.eastus2.cloudapp.azure.com/fullchain.pem ]; then
+          certbot certonly --webroot --webroot-path=/var/www/certbot \
+            --email ${DEFAULT_FROM_EMAIL} --agree-tos --no-eff-email \
+            -d ${BACKEND_URL};
+        fi
+      "
+
 volumes:
   postgres_data:
     driver: local
