@@ -1,0 +1,29 @@
+WEB_URL=localhost:3000
+API_URL=localhost:8080
+DJANGO_ALLOWED_HOSTS=localhost
+
+# Django secret key and debug mode
+DJANGO_SECRET_KEY=FAKE_SECRET_KEY_12345
+DJANGO_DEBUG=True
+
+# CORS settings
+DJANGO_CORS_ALLOWED_ORIGINS=http://localhost:3000
+DJANGO_CORS_ALLOW_CREDENTIALS=True
+CSRF_TRUSTED_ORIGINS=http://localhost:3000,http://localhost:8080
+COLLECT_STATIC=true
+
+# Correo electrónico
+DJANGO_DEFAULT_FROM_EMAIL=fake.email@example.com
+DJANGO_EMAIL_HOST_PASSWORD=fakepassword123
+
+
+# Configuración de Celery
+CELERY_BROKER_URL=redis://fake-redis:6379
+CELERY_RESULT_BACKEND=redis://fake-redis:6379
+
+DJANGO_DB_ENGINE=postgres
+DJANGO_DB_USER=fake_user
+DJANGO_DB_PASSWORD=fake_password
+DJANGO_DB_HOST=fake-postgres
+DJANGO_DB_PORT=5432
+DJANGO_DB_NAME=fake_db

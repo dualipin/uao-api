@@ -1,0 +1,72 @@
+[
+  {
+    "model": "direcciones.estado",
+    "pk": 1,
+    "fields": {
+      "nombre": "Tabasco"
+    }
+  },
+  {
+    "model": "direcciones.estado",
+    "pk": 2,
+    "fields": {
+      "nombre": "Chiapas"
+    }
+  },
+  {
+    "model": "direcciones.municipio",
+    "pk": 1,
+    "fields": {
+      "nombre": "Jalapa",
+      "estado": 1
+    }
+  },
+  {
+    "model": "direcciones.municipio",
+    "pk": 2,
+    "fields": {
+      "nombre": "Pichucalco",
+      "estado": 2
+    }
+  },
+  {
+    "model": "direcciones.direccion",
+    "pk": 1,
+    "fields": {
+      "municipio": 1,
+      "calle": "20 de Noviembre",
+      "numero_exterior": "SN",
+      "colonia": "Centro",
+      "codigo_postal": "86850"
+    }
+  },
+  {
+    "model": "extensiones.extension",
+    "pk": 1,
+    "fields": {
+      "nombre": "Jalapa",
+      "contacto": "9934431796",
+      "direccion": 1
+    }
+  },
+  {
+    "model": "direcciones.direccion",
+    "pk": 2,
+    "fields": {
+      "municipio": 2,
+      "calle": "Calle César A. Lara Las Ranas",
+      "numero_exterior": "SN",
+      "colonia": "Pichucalco",
+      "codigo_postal": "29520"
+    }
+  },
+  {
+    "model": "extensiones.extension",
+    "pk": 2,
+    "fields": {
+      "nombre": "Pichucalco",
+      "contacto": "9321214035",
+      "direccion": 2
+    }
+  }
+]

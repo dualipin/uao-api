@@ -1,0 +1,19 @@
+{
+	"name": "UAO API Development",
+	"dockerComposeFile": "./docker-compose.yml",
+	"service": "api",
+	"workspaceFolder": "/app",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python",
+				"ms-python.black-formatter",
+				"streetsidesoftware.code-spell-checker",
+				"wholroyd.jinja",
+				"njpwerner.autodocstring",
+				"batisteo.vscode-django",
+				"streetsidesoftware.code-spell-checker-spanish"
+			]
+		}
+	}
+}

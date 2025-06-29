@@ -1,0 +1,30 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Environment variables
+.env
+*.env
+
+# Django specific
+*.log
+*.sqlite3
+
+app/media/
+app/staticfiles/
+
+# Docker specific
+Dockerfile
+docker-compose.yml
+*.pid
+
+# IDEs and editors
+.vscode/
+.devcontainer/
+.idea/
+*.swp
+
+# OS generated files
+.DS_Store
+Thumbs.db

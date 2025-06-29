@@ -1,0 +1,71 @@
+services:
+  postgres:
+    image: postgres:latest
+    restart: always
+    container_name: uao-postgres-dev
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    env_file:
+      - .env.db
+    environment:
+      - POSTGRES_USER=${DJANGO_DB_USER}
+      - POSTGRES_PASSWORD=${DJANGO_DB_PASSWORD}
+      - POSTGRES_DB=${DJANGO_DB_NAME}
+    ports:
+      - "5432:5432"
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: uao-pgadmin-dev
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    depends_on:
+      - postgres
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+
+  redis:
+    image: redis:latest
+    container_name: uao-redis-dev
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+
+  redis-commander:
+    image: rediscommander/redis-commander
+    container_name: uao-redis-commander
+    ports:
+      - "8081:8081"
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - redis
+
+  api:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    container_name: uao-api-dev
+    volumes:
+      - ../:/app:cached
+    env_file:
+      - .env
+      - .env.db
+    environment:
+      - DJANGO_DEBUG=True
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+      - redis
+
+volumes:
+  postgres_data:
+  redis_data:
+  pgadmin_data:
